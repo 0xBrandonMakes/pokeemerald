@@ -499,20 +499,192 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
     || move == MOVE_KNOCK_OFF)
 
 #define isShadowBallSpecial(attacker) \
-    (!(     attacker == SPECIES_RATTATA \
+    (!(    attacker == SPECIES_CATERPIE \
+        || attacker == SPECIES_WEEDLE \
+        || attacker == SPECIES_BEEDRILL \
+        || attacker == SPECIES_PIDGEY \
+        || attacker == SPECIES_PIDGEOTTO \
+        || attacker == SPECIES_PIDGEOT \
+        || attacker == SPECIES_RATTATA \
         || attacker == SPECIES_RATICATE \
+        || attacker == SPECIES_SPEAROW \
+        || attacker == SPECIES_FEAROW \
+        || attacker == SPECIES_EKANS \
+        || attacker == SPECIES_ARBOK \
+        || attacker == SPECIES_PIKACHU \
+        || attacker == SPECIES_SANDSHREW \
+        || attacker == SPECIES_SANDSLASH \
+        || attacker == SPECIES_NIDORAN_F \
+        || attacker == SPECIES_NIDORINA \
         || attacker == SPECIES_NIDOQUEEN \
+        || attacker == SPECIES_NIDORAN_M \
+        || attacker == SPECIES_NIDORINO \
         || attacker == SPECIES_NIDOKING \
         || attacker == SPECIES_ZUBAT \
         || attacker == SPECIES_GOLBAT \
+        || attacker == SPECIES_PARAS \
+        || attacker == SPECIES_PARASECT \
+        || attacker == SPECIES_VENONAT \
+        || attacker == SPECIES_DIGLETT \
+        || attacker == SPECIES_DUGTRIO \
         || attacker == SPECIES_MEOWTH \
         || attacker == SPECIES_PERSIAN \
+        || attacker == SPECIES_MANKEY \
+        || attacker == SPECIES_PRIMEAPE \
+        || attacker == SPECIES_ARCANINE \
+        || attacker == SPECIES_POLIWAG \
+        || attacker == SPECIES_POLIWHIRL \
+        || attacker == SPECIES_POLIWRATH \
+        || attacker == SPECIES_MACHOP \
+        || attacker == SPECIES_MACHOKE \
+        || attacker == SPECIES_MACHAMP \
+        || attacker == SPECIES_BELLSPROUT \
+        || attacker == SPECIES_WEEPINBELL \
+        || attacker == SPECIES_VICTREEBEL \
+        || attacker == SPECIES_GEODUDE \
+        || attacker == SPECIES_GRAVELER \
+        || attacker == SPECIES_GOLEM \
+        || attacker == SPECIES_PONYTA \
+        || attacker == SPECIES_RAPIDASH \
+        || attacker == SPECIES_SLOWPOKE \
+        || attacker == SPECIES_FARFETCHD \
+        || attacker == SPECIES_DODUO \
+        || attacker == SPECIES_DODRIO \
+        || attacker == SPECIES_GRIMER \
+        || attacker == SPECIES_MUK \
+        || attacker == SPECIES_SHELLDER \
+        || attacker == SPECIES_CLOYSTER \
+        || attacker == SPECIES_ONIX \
+        || attacker == SPECIES_DROWZEE \
+        || attacker == SPECIES_KRABBY \
+        || attacker == SPECIES_KINGLER \
+        || attacker == SPECIES_CUBONE \
+        || attacker == SPECIES_MAROWAK \
+        || attacker == SPECIES_HITMONLEE \
+        || attacker == SPECIES_HITMONCHAN \
         || attacker == SPECIES_KOFFING \
         || attacker == SPECIES_WEEZING \
+        || attacker == SPECIES_RHYHORN \
+        || attacker == SPECIES_RHYDON \
         || attacker == SPECIES_KANGASKHAN \
+        || attacker == SPECIES_GOLDEEN \
+        || attacker == SPECIES_SEAKING \
+        || attacker == SPECIES_SCYTHER \
+        || attacker == SPECIES_PINSIR \
+        || attacker == SPECIES_TAUROS \
+        || attacker == SPECIES_GYARADOS \
         || attacker == SPECIES_EEVEE \
         || attacker == SPECIES_FLAREON \
-        || attacker == SPECIES_SNORLAX))
+        || attacker == SPECIES_KABUTO \
+        || attacker == SPECIES_KABUTOPS \
+        || attacker == SPECIES_AERODACTYL \
+        || attacker == SPECIES_SNORLAX \
+        || attacker == SPECIES_DRATINI \
+        || attacker == SPECIES_DRAGONAIR \
+        || attacker == SPECIES_DRAGONITE \
+        || attacker == SPECIES_TOTODILE \
+        || attacker == SPECIES_CROCONAW \
+        || attacker == SPECIES_FERALIGATR \
+        || attacker == SPECIES_SENTRET \
+        || attacker == SPECIES_FURRET \
+        || attacker == SPECIES_SPINARAK \
+        || attacker == SPECIES_ARIADOS \
+        || attacker == SPECIES_CROBAT \
+        || attacker == SPECIES_PICHU \
+        || attacker == SPECIES_SUDOWOODO \
+        || attacker == SPECIES_AIPOM \
+        || attacker == SPECIES_WOOPER \
+        || attacker == SPECIES_QUAGSIRE \
+        || attacker == SPECIES_UMBREON \
+        || attacker == SPECIES_PINECO \
+        || attacker == SPECIES_FORRETRESS \
+        || attacker == SPECIES_DUNSPARCE \
+        || attacker == SPECIES_GLIGAR \
+        || attacker == SPECIES_STEELIX \
+        || attacker == SPECIES_SNUBBULL \
+        || attacker == SPECIES_GRANBULL \
+        || attacker == SPECIES_QWILFISH \
+        || attacker == SPECIES_SCIZOR \
+        || attacker == SPECIES_HERACROSS \
+        || attacker == SPECIES_SNEASEL \
+        || attacker == SPECIES_TEDDIURSA \
+        || attacker == SPECIES_URSARING \
+        || attacker == SPECIES_SWINUB \
+        || attacker == SPECIES_PILOSWINE \
+        || attacker == SPECIES_SKARMORY \
+        || attacker == SPECIES_PHANPY \
+        || attacker == SPECIES_DONPHAN \
+        || attacker == SPECIES_STANTLER \
+        || attacker == SPECIES_HITMONTOP \
+        || attacker == SPECIES_MAGBY \
+        || attacker == SPECIES_MILTANK \
+        || attacker == SPECIES_ENTEI \
+        || attacker == SPECIES_LARVITAR \
+        || attacker == SPECIES_PUPITAR \
+        || attacker == SPECIES_TYRANITAR \
+        || attacker == SPECIES_HO_OH \
+        || attacker == SPECIES_BLAZIKEN \
+        || attacker == SPECIES_MUDKIP \
+        || attacker == SPECIES_MARSHTOMP \
+        || attacker == SPECIES_SWAMPERT \
+        || attacker == SPECIES_POOCHYENA \
+        || attacker == SPECIES_MIGHTYENA \
+        || attacker == SPECIES_LINOONE \
+        || attacker == SPECIES_WURMPLE \
+        || attacker == SPECIES_SILCOON \
+        || attacker == SPECIES_CASCOON \
+        || attacker == SPECIES_SEEDOT \
+        || attacker == SPECIES_NUZLEAF \
+        || attacker == SPECIES_SHIFTRY \
+        || attacker == SPECIES_TAILLOW \
+        || attacker == SPECIES_SWELLOW \
+        || attacker == SPECIES_BRELOOM \
+        || attacker == SPECIES_SLAKOTH \
+        || attacker == SPECIES_VIGOROTH \
+        || attacker == SPECIES_SLAKING \
+        || attacker == SPECIES_NINCADA \
+        || attacker == SPECIES_NINJASK \
+        || attacker == SPECIES_SHEDINJA \
+        || attacker == SPECIES_MAKUHITA \
+        || attacker == SPECIES_HARIYAMA \
+        || attacker == SPECIES_SKITTY \
+        || attacker == SPECIES_DELCATTY \
+        || attacker == SPECIES_SABLEYE \
+        || attacker == SPECIES_MAWILE \
+        || attacker == SPECIES_ARON \
+        || attacker == SPECIES_LAIRON \
+        || attacker == SPECIES_AGGRON \
+        || attacker == SPECIES_VOLBEAT \
+        || attacker == SPECIES_CARVANHA \
+        || attacker == SPECIES_SHARPEDO \
+        || attacker == SPECIES_TRAPINCH \
+        || attacker == SPECIES_VIBRAVA \
+        || attacker == SPECIES_FLYGON \
+        || attacker == SPECIES_ZANGOOSE \
+        || attacker == SPECIES_SOLROCK \
+        || attacker == SPECIES_BARBOACH \
+        || attacker == SPECIES_WHISCASH \
+        || attacker == SPECIES_CORPHISH \
+        || attacker == SPECIES_CRAWDAUNT \
+        || attacker == SPECIES_ANORITH \
+        || attacker == SPECIES_ARMALDO \
+        || attacker == SPECIES_FEEBAS \
+        || attacker == SPECIES_KECLEON \
+        || attacker == SPECIES_SHUPPET \
+        || attacker == SPECIES_BANETTE \
+        || attacker == SPECIES_DUSKULL \
+        || attacker == SPECIES_DUSCLOPS \
+        || attacker == SPECIES_ABSOL \
+        || attacker == SPECIES_HUNTAIL \
+        || attacker == SPECIES_RELICANTH \
+        || attacker == SPECIES_BAGON \
+        || attacker == SPECIES_SHELGON \
+        || attacker == SPECIES_SALAMENCE \
+        || attacker == SPECIES_BELDUM \
+        || attacker == SPECIES_METANG \
+        || attacker == SPECIES_METAGROSS \
+        || attacker == SPECIES_REGIROCK \
+        || attacker == SPECIES_GROUDON))
 
 #define isMoveSpecial(move, attacker) \
     (  move == MOVE_GUST \
