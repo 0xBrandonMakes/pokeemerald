@@ -1840,6 +1840,7 @@ static void Cmd_healthbarupdate(void)
 static void Cmd_datahpupdate(void)
 {
     u32 moveType;
+    u16 move; //Brandon: for physical special split
 
     if (gBattleControllerExecFlags)
         return;

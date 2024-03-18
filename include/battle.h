@@ -460,8 +460,78 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
         typeArg = gBattleMoves[move].type;                            \
 }
 
-#define IS_TYPE_PHYSICAL(moveType)(moveType < TYPE_MYSTERY)
-#define IS_TYPE_SPECIAL(moveType)(moveType > TYPE_MYSTERY)
+//Brandon: physical special split
+#include "constants/moves.h"
+
+#define isPunchPhysical(attacker) \
+    (!(    attacker == SPECIES_ABRA \
+        || attacker == SPECIES_KADABRA \
+        || attacker == SPECIES_ALAKAZAM ))
+
+#define isMovePhysical(move, attacker) \
+    ( (move == MOVE_FIRE_PUNCH && isPunchPhysical(attacker)) \
+    || move == MOVE_FLAME_WHEEL \
+    || move == MOVE_SACRED_FIRE \
+    || move == MOVE_BLAZE_KICK \
+    || move == MOVE_CLAMP \
+    || move == MOVE_CRABHAMMER \
+    || move == MOVE_WATERFALL \
+    || move == MOVE_DIVE \
+    || move == MOVE_RAZOR_LEAF \
+    || move == MOVE_VINE_WHIP \
+    || move == MOVE_BULLET_SEED \
+    || move == MOVE_LEAF_BLADE \
+    || move == MOVE_NEEDLE_ARM \
+    || (move == MOVE_THUNDER_PUNCH && isPunchPhysical(attacker)) \
+    || move == MOVE_SPARK \
+    || move == MOVE_VOLT_TACKLE \
+    || (move == MOVE_ICE_PUNCH && isPunchPhysical(attacker)) \
+    || move == MOVE_ICE_BALL \
+    || move == MOVE_ICICLE_SPEAR \
+    || move == MOVE_OUTRAGE \
+    || move == MOVE_DRAGON_CLAW \
+    || move == MOVE_BITE \
+    || move == MOVE_BEAT_UP \
+    || move == MOVE_CRUNCH \
+    || move == MOVE_FAINT_ATTACK \
+    || move == MOVE_PURSUIT \
+    || move == MOVE_THIEF \
+    || move == MOVE_KNOCK_OFF)
+
+#define isShadowBallSpecial(attacker) \
+    (!(     attacker == SPECIES_RATTATA \
+        || attacker == SPECIES_RATICATE \
+        || attacker == SPECIES_NIDOQUEEN \
+        || attacker == SPECIES_NIDOKING \
+        || attacker == SPECIES_ZUBAT \
+        || attacker == SPECIES_GOLBAT \
+        || attacker == SPECIES_MEOWTH \
+        || attacker == SPECIES_PERSIAN \
+        || attacker == SPECIES_KOFFING \
+        || attacker == SPECIES_WEEZING \
+        || attacker == SPECIES_KANGASKHAN \
+        || attacker == SPECIES_EEVEE \
+        || attacker == SPECIES_FLAREON \
+        || attacker == SPECIES_SNORLAX))
+
+#define isMoveSpecial(move, attacker) \
+    (  move == MOVE_GUST \
+    || move == MOVE_AEROBLAST \
+    || move == MOVE_AIR_CUTTER \
+    || move == MOVE_ACID \
+    || move == MOVE_SLUDGE \
+    || move == MOVE_SMOG \
+    || move == MOVE_SLUDGE_BOMB \
+    || move == MOVE_ANCIENT_POWER \
+    || move == MOVE_SIGNAL_BEAM \
+    || move == MOVE_SILVER_WIND \
+    || (move == MOVE_SHADOW_BALL && isShadowBallSpecial(attacker)))
+
+//#define IS_TYPE_PHYSICAL(moveType)(moveType < TYPE_MYSTERY)
+//#define IS_TYPE_SPECIAL(moveType)(moveType > TYPE_MYSTERY)
+
+#define IS_TYPE_PHYSICAL(moveType)((moveType < TYPE_MYSTERY && !isMoveSpecial(move, gBattleMons[gBattlerAttacker].species)) || isMovePhysical(move, gBattleMons[gBattlerAttacker].species))
+#define IS_TYPE_SPECIAL(moveType)((moveType > TYPE_MYSTERY && !isMovePhysical(move, gBattleMons[gBattlerAttacker].species)) || isMoveSpecial(move, gBattleMons[gBattlerAttacker].species))
 
 #define TARGET_TURN_DAMAGED ((gSpecialStatuses[gBattlerTarget].physicalDmg != 0 || gSpecialStatuses[gBattlerTarget].specialDmg != 0))
 

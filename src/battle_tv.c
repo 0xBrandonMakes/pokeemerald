@@ -1151,6 +1151,7 @@ static void AddMovePoints(u8 caseId, u16 arg1, u8 arg2, u8 arg3)
     u32 defSide = GetBattlerSide(gBattlerTarget);
     const u16 *ptr;
     s32 i;
+    u16 move; //Brandon: for physical special split
 
     switch (caseId)
     {
