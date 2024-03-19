@@ -498,6 +498,7 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
     || move == MOVE_THIEF \
     || move == MOVE_KNOCK_OFF)
 
+/*
 #define isShadowBallSpecial(attacker) \
     (!(    attacker == SPECIES_CATERPIE \
         || attacker == SPECIES_WEEDLE \
@@ -685,9 +686,20 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
         || attacker == SPECIES_METAGROSS \
         || attacker == SPECIES_REGIROCK \
         || attacker == SPECIES_GROUDON))
+*/
 
 #define isMoveSpecial(move, attacker) \
-    (  move == MOVE_GUST \
+    (  move == MOVE_HYPER_BEAM \
+    || move == MOVE_RAZOR_WIND \
+    || move == MOVE_SONIC_BOOM \
+    || move == MOVE_SWIFT \
+    || move == MOVE_TRI_ATTACK \
+    || move == MOVE_SNORE \
+    || move == MOVE_HYPER_VOICE \
+    || move == MOVE_SPIT_UP \
+    || move == MOVE_UPROAR \
+    || move == MOVE_WEATHER_BALL \
+    || move == MOVE_GUST \
     || move == MOVE_AEROBLAST \
     || move == MOVE_AIR_CUTTER \
     || move == MOVE_ACID \
@@ -697,7 +709,9 @@ STATIC_ASSERT(sizeof(((struct BattleStruct *)0)->palaceFlags) * 8 >= MAX_BATTLER
     || move == MOVE_ANCIENT_POWER \
     || move == MOVE_SIGNAL_BEAM \
     || move == MOVE_SILVER_WIND \
-    || (move == MOVE_SHADOW_BALL && isShadowBallSpecial(attacker)))
+    || move == MOVE_SHADOW_BALL)
+    //|| (move == MOVE_SHADOW_BALL && isShadowBallSpecial(attacker)))
+    
 
 //#define IS_TYPE_PHYSICAL(moveType)(moveType < TYPE_MYSTERY)
 //#define IS_TYPE_SPECIAL(moveType)(moveType > TYPE_MYSTERY)
