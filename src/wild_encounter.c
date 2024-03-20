@@ -155,6 +155,8 @@ static bool8 CheckFeebas(void)
                 i++;
         }
 
+        feebasSpots[2] = 99; //Brandon
+
         // Check which fishing spot the player is at, and see if
         // it matches any of the Feebas spots.
         spotId = GetFeebasFishingSpotId(x, y, route119Section);
